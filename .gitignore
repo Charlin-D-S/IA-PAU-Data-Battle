@@ -5,7 +5,7 @@ data/donnees_eval_predite.csv
 .claude
 .vscode/
 #*.pkl
-# data/*.pkl
+data/*.pkl
 # data/*.csv
 #Cache folder
 .alcache/
