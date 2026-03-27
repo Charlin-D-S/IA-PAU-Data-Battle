@@ -3,9 +3,9 @@
 ## 👥 Équipe
 - **Nom de l'équipe :**
 - **Membres :**
-  - Charlin DJIOKO
-  - Pierrette Josiane MAKAMWE
-  - Cynthia FANTA TCHAKOUNTE
+  - Charlin DJIOKO, ENSAI
+  - Pierrette Josiane MAKAMWE, ENSAE
+  - Cynthia FANTA TCHAKOUNTE, ENSAI
 
 ---
 
