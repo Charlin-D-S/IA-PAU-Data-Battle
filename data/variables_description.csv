@@ -1,0 +1,98 @@
+variable,type,description,category
+lightning_id,int,Identifiant unique de l'éclair,Identifiant
+lightning_airport_id,int,Identifiant éclair-aéroport,Identifiant
+airport_alert_id,float,Identifiant de l'alerte associée,Identifiant
+date,datetime,Horodatage de l'éclair (UTC),Brute
+lon,float,Longitude de l'éclair,Brute
+lat,float,Latitude de l'éclair,Brute
+airport,str,Nom de l'aéroport,Brute
+dist,float,Distance éclair-aéroport (km),Brute
+azimuth,float,Azimut de l'éclair par rapport à l'aéroport (°),Brute
+amplitude,float,Amplitude électrique de l'éclair (kA),Brute
+maxis,float,Nombre de maxima du signal,Brute
+icloud,bool,"True si éclair intra-nuage, False si nuage-sol",Brute
+is_last_lightning_cloud_ground,boolean,Indicateur dernier éclair nuage-sol de l'alerte,Brute
+year,int,Année de l'éclair,Temporel
+month,int,Mois de l'éclair,Temporel
+hour,int,Heure de l'éclair,Temporel
+season,str,Saison (Hiver/Printemps/Été/Automne),Temporel
+time_since_last_lightning,float,Temps depuis le dernier éclair (s),Délai dernier éclair
+time_since_last_cloud_ground,float,Temps depuis le dernier éclair nuage-sol (s),Délai dernier éclair
+time_since_last_intra_cloud,float,Temps depuis le dernier éclair intra-nuage (s),Délai dernier éclair
+time_since_last_lightning2,float,"log(clip(time_since_last_lightning, 0, 3600) + 1)",Délai dernier éclair
+time_since_last_cloud_ground2,float,"log(clip(time_since_last_cloud_ground, 0, 3600) + 1)",Délai dernier éclair
+time_since_last_intra_cloud2,float,"log(clip(time_since_last_intra_cloud, 0, 3600) + 1)",Délai dernier éclair
+count_1min,float,Nb éclairs dans la dernière 1 min,Comptage rolling
+count_5min,float,Nb éclairs dans les 5 dernières min,Comptage rolling
+count_10min,float,Nb éclairs dans les 10 dernières min,Comptage rolling
+count_20min,float,Nb éclairs dans les 20 dernières min,Comptage rolling
+count_30min,float,Nb éclairs dans les 30 dernières min,Comptage rolling
+log_count_1min,float,log(count_1min + 1),Comptage rolling
+log_count_5min,float,log(count_5min + 1),Comptage rolling
+log_count_10min,float,log(count_10min + 1),Comptage rolling
+log_count_20min,float,log(count_20min + 1),Comptage rolling
+log_count_30min,float,log(count_30min + 1),Comptage rolling
+cg,int,"1 si éclair nuage-sol, 0 sinon",Type d'éclair
+ic,int,"1 si éclair intra-nuage, 0 sinon",Type d'éclair
+ic_count_5min,float,Nb éclairs intra-nuage sur 5 min,Type d'éclair
+ic_count_10min,float,Nb éclairs intra-nuage sur 10 min,Type d'éclair
+ic_count_20min,float,Nb éclairs intra-nuage sur 20 min,Type d'éclair
+cg_count_5min,float,Nb éclairs nuage-sol sur 5 min,Type d'éclair
+cg_count_10min,float,Nb éclairs nuage-sol sur 10 min,Type d'éclair
+cg_count_20min,float,Nb éclairs nuage-sol sur 20 min,Type d'éclair
+log_ic_count_5min,float,log(ic_count_5min + 1),Type d'éclair
+log_ic_count_10min,float,log(ic_count_10min + 1),Type d'éclair
+log_ic_count_20min,float,log(ic_count_20min + 1),Type d'éclair
+log_cg_count_5min,float,log(cg_count_5min + 1),Type d'éclair
+log_cg_count_10min,float,log(cg_count_10min + 1),Type d'éclair
+log_cg_count_20min,float,log(cg_count_20min + 1),Type d'éclair
+rate_1min,float,Taux d'éclairs sur 1 min (= count_1min),Taux d'activité
+rate_5min,float,Taux d'éclairs sur 5 min (count_5min / 5),Taux d'activité
+rate_10min,float,Taux d'éclairs sur 10 min (count_10min / 10),Taux d'activité
+rate_trend,float,log(count_10min - count_5min + 1) — tendance d'activité,Taux d'activité
+activity_decay,float,rate_5min / (rate_10min + ε) — décroissance d'activité,Taux d'activité
+activity_acceleration,float,rate_1min - rate_5min — accélération d'activité,Taux d'activité
+mean_dist_1min,float,Distance moyenne des éclairs sur 1 min (km),Spatial
+mean_dist_5min,float,Distance moyenne des éclairs sur 5 min (km),Spatial
+mean_dist_10min,float,Distance moyenne des éclairs sur 10 min (km),Spatial
+min_dist_1min,float,Distance minimale des éclairs sur 1 min (km),Spatial
+min_dist_5min,float,Distance minimale des éclairs sur 5 min (km),Spatial
+min_dist_10min,float,Distance minimale des éclairs sur 10 min (km),Spatial
+distance_trend,float,mean_dist_1min - mean_dist_10min — rapprochement/éloignement,Spatial
+std_lat_10min,float,Écart-type latitude sur 10 min — dispersion N/S,Spatial
+std_lon_10min,float,Écart-type longitude sur 10 min — dispersion E/O,Spatial
+storm_spread,float,std_lat_10min + std_lon_10min — étalement spatial de l'orage,Spatial
+mean_azimuth_1min,float,Azimut moyen sur 1 min (°),Azimut
+mean_azimuth_10min,float,Azimut moyen sur 10 min (°),Azimut
+std_azimuth_1min,float,Écart-type azimut sur 1 min (°),Azimut
+std_azimuth_10min,float,Écart-type azimut sur 10 min (°),Azimut
+azimuth_change,float,mean_azimuth_1min - mean_azimuth_10min — rotation du front,Azimut
+azimuth_diff,float,Différence d'azimut entre deux éclairs consécutifs (°),Azimut
+storm_direction_change,float,log(|azimuth_diff| + 1) — changement de direction,Azimut
+mean_amplitude_1min,float,Amplitude moyenne sur 1 min (kA),Amplitude
+mean_amplitude_10min,float,Amplitude moyenne sur 10 min (kA),Amplitude
+max_amplitude_1min,float,Amplitude maximale sur 1 min (kA),Amplitude
+max_amplitude_10min,float,Amplitude maximale sur 10 min (kA),Amplitude
+amplitude_change,float,mean_amplitude_1min - mean_amplitude_10min,Amplitude
+std_amplitude_10min,float,Écart-type amplitude sur 10 min (kA),Amplitude
+log_std_amplitude_10min,float,log(std_amplitude_10min + 1),Amplitude
+alert_start,datetime,Date de début de l'alerte,Alerte
+alert_duration,float,"Durée depuis début alerte (s, clippée à 3600)",Alerte
+cg_ratio,float,cg_count_10min / (count_10min + ε) — proportion CG,Alerte
+burst_indicator,int,1 si count_1min > 5 — burst d'éclairs,Alerte
+silence_30min,int,1 si temps depuis dernier éclair > 30 min,Alerte
+delta_t,float,Intervalle temporel entre deux éclairs consécutifs (s),Dynamique orage
+delta_dist,float,Variation de distance entre deux éclairs consécutifs (km),Dynamique orage
+storm_velocity,float,Vitesse radiale de l'orage (km/s),Dynamique orage
+storm_lat_center,float,Latitude du centre de masse de l'orage (10 min),Dynamique orage
+storm_lon_center,float,Longitude du centre de masse de l'orage (10 min),Dynamique orage
+storm_center_distance,float,Distance entre centre de l'orage et aéroport (°),Dynamique orage
+storm_center_move,float,Déplacement du centre de l'orage entre deux éclairs,Dynamique orage
+storm_center_velocity,float,storm_center_move / (time_since_last_lightning + 1),Dynamique orage
+airport_lat,float,Latitude de l'aéroport,Référence aéroport
+airport_lon,float,Longitude de l'aéroport,Référence aéroport
+is_cloud_ground,int,1 si éclair nuage-sol,Cible
+cg_20km,bool,True si éclair CG dans les 20 km,Cible
+time_to_next_cg20,float,Temps (s) jusqu'au prochain CG ≤ 20 km (clippé à 3600),Cible
+target_log_time,float,log(time_to_next_cg20 + 1) — cible principale régression,Cible
+target_bins,category,"Classe temporelle : 0<5min, 1<10min, 2<20min, 3<30min, 4>30min",Cible

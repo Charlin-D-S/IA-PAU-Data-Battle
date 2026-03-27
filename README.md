@@ -3,9 +3,9 @@
 ## 👥 Équipe
 - **Nom de l'équipe :**
 - **Membres :**
-  - Nom Prénom
-  - Nom Prénom
-  - Nom Prénom
+  - Charlin DJIOKO
+  - Pierrette Josiane MAKAMWE
+  - Cynthia FANTA TCHAKOUNTE
 
 ---
 
