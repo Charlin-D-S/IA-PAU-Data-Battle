@@ -2,6 +2,7 @@
 
 ## 👥 Équipe
 - **Nom de l'équipe :**
+  - *Les Fantastiques* 
 - **Membres :**
   - Charlin DJIOKO, ENSAI
   - Pierrette Josiane MAKAMWE, ENSAE
