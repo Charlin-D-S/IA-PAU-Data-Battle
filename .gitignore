@@ -3,6 +3,7 @@
 #launch.json folder
 data/donnees_eval_predite.csv
 data/segment_alerts_all_airports_train.csv
+data/segment_alerts_all_airports_eval.csv
 .claude
 .vscode/
 #*.pkl
